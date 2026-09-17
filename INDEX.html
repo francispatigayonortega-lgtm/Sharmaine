@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday, My Love 🎂❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                -45deg,
+                #ff9a9e,
+                #fad0c4,
+                #a18cd1,
+                #fbc2eb
+            );
+
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+        }
+
+        @keyframes gradientBG {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+        .container {
+
+            width: 92%;
+            max-width: 700px;
+
+            padding: 35px 25px;
+            margin: 30px auto;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.20);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.35);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.15);
+
+            position: relative;
+            z-index: 5;
+        }
+
+        .small-text {
+
+            font-size: 14px;
+
+            color: white;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        h1 {
+
+            font-family: 'Pacifico', cursive;
+
+            font-size: clamp(42px, 10vw, 75px);
+
+            color: white;
+
+            text-shadow:
+                0 5px 15px rgba(0,0,0,0.15);
+
+            margin-bottom: 5px;
+        }
+
+        .name {
+
+            font-size: clamp(25px, 7vw, 42px);
+
+            font-weight: 700;
+
+            color: white;
+
+            margin-bottom: 20px;
+        }
+
+        .cake {
+
+            font-size: clamp(70px, 18vw, 120px);
+
+            animation: float 3s ease-in-out infinite;
+
+            cursor: pointer;
+
+            display: inline-block;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+        }
+
+        .message {
+
+            color: white;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            min-height: 100px;
+
+            margin: 20px auto;
+
+            max-width: 580px;
+        }
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+        }
+
+        button {
+
+            border: none;
+
+            padding: 13px 22px;
+
+            border-radius: 50px;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            color: #a84d75;
+
+            background: white;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.15);
+
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+
+            transform: translateY(-4px) scale(1.03);
+
+            box-shadow:
+                0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+
+            transform: scale(0.95);
+        }
+
+        /* SURPRISE */
+
+        .surprise {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 25px 20px;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.25);
+
+            color: white;
+
+            animation: appear 0.6s ease;
+        }
+
+        .surprise h2 {
+
+            font-family: 'Pacifico', cursive;
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+        /* FINAL LOVE MESSAGE */
+
+        .love-message {
+
+            margin-top: 25px;
+
+            font-family: 'Pacifico', cursive;
+
+            font-size: clamp(24px, 6vw, 35px);
+
+            color: white;
+
+            text-shadow:
+                0 3px 12px rgba(0,0,0,0.20);
+
+            animation: loveBeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loveBeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+        }
+
+        /* FLOATING HEARTS */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -30px;
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            animation: rise linear forwards;
+
+            z-index: 1;
+        }
+
+        @keyframes rise {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    scale(1.8)
+                    rotate(30deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* BALLOONS */
+
+        .balloon {
+
+            position: fixed;
+
+            width: 55px;
+
+            height: 70px;
+
+            border-radius: 50%;
+
+            bottom: -100px;
+
+            opacity: 0.8;
+
+            animation:
+                balloonUp 10s linear infinite;
+
+            z-index: 0;
+        }
+
+        .balloon::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 1px;
+
+            height: 70px;
+
+            background:
+                rgba(255,255,255,0.7);
+
+            left: 50%;
+
+            top: 68px;
+        }
+
+        @keyframes balloonUp {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-120vh);
+            }
+
+        }
+
+        /* POPUP */
+
+        .popup {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0,0,0,0.55);
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 100;
+
+            padding: 20px;
+        }
+
+        .popup-content {
+
+            width: 100%;
+
+            max-width: 400px;
+
+            background: white;
+
+            color: #555;
+
+            padding: 35px 25px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            animation: popupIn 0.5s ease;
+        }
+
+        .popup-content .emoji {
+
+            font-size: 65px;
+
+            margin-bottom: 15px;
+        }
+
+        .popup-content h2 {
+
+            color: #d95d91;
+
+            margin-bottom: 10px;
+        }
+
+        @keyframes popupIn {
+
+            from {
+
+                transform:
+                    scale(0.5)
+                    rotate(-5deg);
+
+                opacity: 0;
+            }
+
+            to {
+
+                transform:
+                    scale(1)
+                    rotate(0);
+
+                opacity: 1;
+            }
+
+        }
+
+        footer {
+
+            margin-top: 25px;
+
+            color:
+                rgba(255,255,255,0.8);
+
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 500px) {
+
+            .container {
+
+                padding: 28px 18px;
+
+                border-radius: 25px;
+            }
+
+            .message {
+
+                font-size: 14px;
+
+                line-height: 1.7;
+            }
+
+            button {
+
+                width: 100%;
+
+                max-width: 250px;
+            }
+
+            .buttons {
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- MAIN CARD -->
+
+    <main class="container">
+
+        <div class="small-text">
+
+            A SPECIAL DAY FOR A SPECIAL PERSON ✨
+
+        </div>
+
+
+        <h1>
+
+            Happy Birthday!
+
+        </h1>
+
+
+        <!-- CHANGE NAME HERE -->
+
+        <div class="name">
+
+            Sharmaine Herbieto 💖
+
+        </div>
+
+
+        <!-- CAKE -->
+
+        <div
+            class="cake"
+            onclick="cakeConfetti()"
+        >
+
+            🎂
+
+        </div>
+
+
+        <!-- TYPING MESSAGE -->
+
+        <div
+            class="message"
+            id="message"
+        ></div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <button onclick="bigConfetti()">
+
+                🎉 Celebrate!
+
+            </button>
+
+
+            <button onclick="showSurprise()">
+
+                🎁 Open Surprise
+
+            </button>
+
+
+            <button onclick="showPopup()">
+
+                💌 One More Surprise
+
+            </button>
+
+        </div>
+
+
+        <!-- SURPRISE -->
+
+        <div
+            class="surprise"
+            id="surprise"
+        >
+
+            <h2>
+
+                🎁 Surprise!
+
+            </h2>
+
+
+            <p>
+
+                You deserve all the happiness,
+                love, and beautiful moments
+                this world can offer. 💖
+
+            </p>
+
+
+            <br>
+
+
+            <strong>
+
+                May this new chapter of your life
+                be filled with unforgettable
+                memories, endless blessings,
+                and lots of happiness. ✨
+
+            </strong>
+
+
+            <!-- FINAL LOVE MESSAGE -->
+
+            <div class="love-message">
+
+                I love you so much, my love. ❤️
+
+            </div>
+
+        </div>
+
+
+        <footer>
+
+            Made with ❤️ just for you
+
+        </footer>
+
+    </main>
+
+
+
+    <!-- POPUP -->
+
+    <div
+        class="popup"
+        id="popup"
+    >
+
+        <div class="popup-content">
+
+
+            <div class="emoji">
+
+                💖🎂✨
+
+            </div>
+
+
+            <h2>
+
+                Special Birthday Message
+
+            </h2>
+
+
+            <p>
+
+                No matter how many birthdays
+                come, I hope you always remember
+                how special and precious you are. ❤️
+
+            </p>
+
+
+            <br>
+
+
+            <button onclick="closePopup()">
+
+                Close 💕
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =========================
+           TYPING MESSAGE
+        ========================= */
+
+        const text =
+        "Today is not just another day... it's a celebration of YOU! 🎉 May your birthday be filled with genuine smiles, beautiful memories, endless blessings, and all the love your heart deserves. Happy Birthday! ❤️";
+
+
+        const message =
+        document.getElementById("message");
+
+
+        let index = 0;
+
+
+        function typeWriter() {
+
+            if (index < text.length) {
+
+                message.innerHTML +=
+                    text.charAt(index);
+
+                index++;
+
+                setTimeout(
+                    typeWriter,
+                    35
+                );
+
+            }
+
+        }
+
+
+        typeWriter();
+
+
+
+        /* =========================
+           BIG CONFETTI
+        ========================= */
+
+        function bigConfetti() {
+
+            const duration = 4000;
+
+            const end =
+                Date.now() + duration;
+
+
+            function frame() {
+
+                confetti({
+
+                    particleCount: 8,
+
+                    angle: 60,
+
+                    spread: 70,
+
+                    origin: {
+                        x: 0
+                    }
+
+                });
+
+
+                confetti({
+
+                    particleCount: 8,
+
+                    angle: 120,
+
+                    spread: 70,
+
+                    origin: {
+                        x: 1
+                    }
+
+                });
+
+
+                if (Date.now() < end) {
+
+                    requestAnimationFrame(frame);
+
+                }
+
+            }
+
+
+            frame();
+
+        }
+
+
+
+        /* =========================
+           CAKE CONFETTI
+        ========================= */
+
+        function cakeConfetti() {
+
+            confetti({
+
+                particleCount: 180,
+
+                spread: 100,
+
+                startVelocity: 40,
+
+                origin: {
+                    x: 0.5,
+                    y: 0.55
+                }
+
+            });
+
+        }
+
+
+
+        /* =========================
+           SURPRISE
+        ========================= */
+
+        function showSurprise() {
+
+            const surprise =
+                document.getElementById(
+                    "surprise"
+                );
+
+
+            surprise.style.display =
+                "block";
+
+
+            /* FIRST CONFETTI */
+
+            confetti({
+
+                particleCount: 250,
+
+                spread: 150,
+
+                origin: {
+                    x: 0.5,
+                    y: 0.6
+                }
+
+            });
+
+
+            /* EXTRA CONFETTI */
+
+            setTimeout(() => {
+
+                confetti({
+
+                    particleCount: 150,
+
+                    spread: 120,
+
+                    startVelocity: 45,
+
+                    origin: {
+                        x: 0.5,
+                        y: 0.5
+                    }
+
+                });
+
+            }, 600);
+
+        }
+
+
+
+        /* =========================
+           POPUP
+        ========================= */
+
+        function showPopup() {
+
+            document.getElementById(
+                "popup"
+            ).style.display = "flex";
+
+
+            confetti({
+
+                particleCount: 200,
+
+                spread: 120,
+
+                origin: {
+                    x: 0.5,
+                    y: 0.5
+                }
+
+            });
+
+        }
+
+
+        function closePopup() {
+
+            document.getElementById(
+                "popup"
+            ).style.display = "none";
+
+        }
+
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.classList.add(
+                "heart"
+            );
+
+
+            const hearts = [
+
+                "❤️",
+                "💕",
+                "💖",
+                "💗",
+                "💓",
+                "💞"
+
+            ];
+
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random()
+                        * hearts.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (15 + Math.random() * 25)
+                + "px";
+
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 5)
+                + "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 10000);
+
+        }
+
+
+        setInterval(
+            createHeart,
+            800
+        );
+
+
+
+        /* =========================
+           BALLOONS
+        ========================= */
+
+        function createBalloon() {
+
+            const balloon =
+                document.createElement("div");
+
+
+            balloon.classList.add(
+                "balloon"
+            );
+
+
+            balloon.style.left =
+                Math.random() * 100 + "vw";
+
+
+            balloon.style.animationDuration =
+                (8 + Math.random() * 7)
+                + "s";
+
+
+            balloon.style.background =
+                `hsl(
+                    ${Math.random() * 360},
+                    75%,
+                    70%
+                )`;
+
+
+            document.body.appendChild(
+                balloon
+            );
+
+
+            setTimeout(() => {
+
+                balloon.remove();
+
+            }, 15000);
+
+        }
+
+
+        setInterval(
+            createBalloon,
+            1800
+        );
+
+
+
+        /* =========================
+           INITIAL CELEBRATION
+        ========================= */
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                setTimeout(() => {
+
+                    confetti({
+
+                        particleCount: 120,
+
+                        spread: 100,
+
+                        origin: {
+                            x: 0.5,
+                            y: 0.6
+                        }
+
+                    });
+
+                }, 700);
+
+            }
+        );
+
+
+    </script>
+
+</body>
+
+</html>
+```
